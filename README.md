@@ -43,6 +43,10 @@
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.2",
     
+    // less
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    
     // vue文件<style>样式
     "vue-style-loader": "^2.0.3",
 ```

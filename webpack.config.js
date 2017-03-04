@@ -40,7 +40,8 @@ module.exports =
                         loaders: {
                             js: 'babel-loader',
                             css: "vue-style-loader!css-loader",
-                            sass: "vue-style-loader!css-loader!sass-loader"
+                            sass: "vue-style-loader!css-loader!sass-loader",
+                            less: "vue-style-loader!css-loader!less-loader",
                         }
                     }
                 },
