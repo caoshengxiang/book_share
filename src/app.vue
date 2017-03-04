@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app">
         {{hello}}
     </div>
 </template>
@@ -15,6 +15,8 @@
     }
 </script>
 
-<style lang="sass" rel="stylesheet/scss">
-
+<style lang="sass" rel="">
+    .app{
+        color: red;
+    }
 </style>
