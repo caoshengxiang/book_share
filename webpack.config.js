@@ -18,7 +18,7 @@ module.exports =
              alias: {
                 vue: 'vue/dist/vue.js'
              },
-            // extensions: ['.js', '.css', '.scss', '.vue'],
+            // extensions: ['.js', '.css', '.sass', '.vue'],
          },
         externals: {
 
@@ -49,6 +49,10 @@ module.exports =
                     test: /\.(css|scss|sass)$/,
                     loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader'})
                 },
+                // {
+                //     test: /\.css$/,
+                //     loader: 'style-loader!css-loader'
+                // },
                 // 解析.scss文件,对于用 import 或 require 引入的sass文件进行加载，以及<style lang="sass">...</style>声明的内部样式进行加载
                 // {
                 //     test: /\.scss$/,
@@ -65,7 +69,7 @@ module.exports =
                 hash:true,  //代表js文件后面会跟一个随机字符串,解决缓存问题
                 chunks:["index"]
             }),
-            new ExtractTextPlugin("built/style.css") //提取出来的样式放在style.css文件中
+            new ExtractTextPlugin("css/style.css") //提取出来的样式放在style.css文件中
 
         ]
     }
