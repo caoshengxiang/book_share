@@ -10,7 +10,11 @@
         <one></one>
         <two></two>
 
-        {{ ajaxData }}
+        <ul>
+            <li v-for="item in ajaxData">
+                my name is {{item.name}},sex: {{item.sex}},age: {{item.age}}
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -25,7 +29,7 @@
         data() {
             return {
                 hello: 'hello, allen.',
-                ajaxData: '',
+                ajaxData: [],
             }
         },
         components: {
@@ -33,6 +37,8 @@
             two,
         },
         created() {
+            const that = this;
+
             // get
             $.ajax({
                 type: "GET",
@@ -40,7 +46,8 @@
                 data: {},
                 dataType: 'json',
                 success(data) {
-                    console.log(data)
+                    console.log(data, "get 数据成功返回")
+                    that.ajaxData = data;
                 },
                 error() {
                     alert('error')
@@ -57,7 +64,7 @@
 //            })
 
             // put
-            $.ajax({
+            /*$.ajax({
                 type: "put",
                 url: 'http://localhost:3000/people/2',
                 data: {
@@ -72,7 +79,8 @@
                 error() {
                     alert('error')
                 }
-            });
+            });*/
+
             // DELETE
             /*$.ajax({
                 type: "delete",

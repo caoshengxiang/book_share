@@ -15,7 +15,7 @@
 >    安装：$ npm install -g json-server
      使用：
       1. cd .json目录
-      2. json-server *.json
+      2. json-server *.json(替代端口; 您可以在其他端口上使用--port标志启动JSON Server ：$ json-server --watch db.json --port 3004)
       3. 访问：控制台地址http://localhost:3000
       4. webstorm 按两下Shift键搜索 restful进入REST Client，可查看及操作数据（response、request）(You can use any HTTP verbs (GET, POST, PUT, PATCH and DELETE) and access your resources from anywhere using CORS or JSONP.)
        == 注意： ==
