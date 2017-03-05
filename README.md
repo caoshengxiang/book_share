@@ -12,7 +12,8 @@
     3. npm run dev
 
 ### json-server安装及使用
->    安装：$ npm install -g json-server
+     安装：
+     $ npm install -g json-server
      使用：
       1. cd .json目录
       2. json-server *.json(替代端口; 您可以在其他端口上使用--port标志启动JSON Server ：$ json-server --watch db.json --port 3004)
@@ -21,7 +22,7 @@
        == 注意： ==
         POST，PUT或PATCH请求应包含一个Content-Type: application/json标头，以在请求正文中使用JSON。否则将导致200 OK，但不会对数据进行更改。
 
->   ==restful==
+    ==restful==
     GET（SELECT）：从服务器取出资源（一项或多项）。
     POST（CREATE）：在服务器新建一个资源。
     PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。

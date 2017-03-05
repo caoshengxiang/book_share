@@ -22,7 +22,7 @@
     import './style/color.css';
     import './style/sass_test.scss'
     import one from './components/one.vue'
-    import two from 'components/two.vue'
+    import two from './components/two.vue'
     import $ from 'jquery'
     export default {
         name: 'App',
@@ -50,7 +50,7 @@
                     that.ajaxData = data;
                 },
                 error() {
-                    alert('error')
+                    alert('获取数据失败')
                 }
             });
 

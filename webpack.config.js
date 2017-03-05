@@ -9,7 +9,7 @@ module.exports =
         entry:
             {
                 //入口文件
-                "index": path.resolve(__dirname+'/src/index.js'),
+                "index": path.resolve(__dirname+'/client/index.js'),
             },
         output: {
             path: path.resolve(__dirname+'/built/'),  //输出文件夹
@@ -27,7 +27,7 @@ module.exports =
             extensions: [' ', '.js', '.css', '.sass', '.scss', '.vue', '.less', '.json'],
 
             //查找module的话从这里开始查找;
-            modules: [path.resolve(__dirname, "src"), "node_modules"], //绝对路径;
+            modules: [path.resolve(__dirname, "client"), "node_modules"], //绝对路径;
          },
         externals: {
 
@@ -39,7 +39,7 @@ module.exports =
                     "test": /\.js/,
                     "loader": "babel-loader",
                     "exclude": /node_modules/,
-                    // "include": [path.resolve(__dirname, './src')]
+                    // "include": [path.resolve(__dirname, './client/')]
                 },
                 // 解析.vue文件
                 {
@@ -76,7 +76,7 @@ module.exports =
             /*编译生成html代码并在html中插入<script>标签*/
             new HtmlWebpackPlugin({
                 filename: path.resolve(__dirname+'/built/index.html'),   // 目标文件
-                template: path.resolve(__dirname+'/src/index.html'), //模板文件
+                template: path.resolve(__dirname+'/client/index.html'), //模板文件
                 inject:'body',
                 hash:true,  //代表js文件后面会跟一个随机字符串,解决缓存问题
                 chunks:["index"]
