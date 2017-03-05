@@ -12,7 +12,8 @@ module.exports =
             },
         output: {
             path: path.resolve(__dirname+'/built/'),  //输出文件夹
-            filename:'[name].js'   //最终打包生成的文件名(只是文件名，不带路径的哦)
+            filename:'[name].js',   //最终打包生成的文件名(只是文件名，不带路径的哦)
+            // publicPath: '/assets/', // webpack-dev-server 伺服的文件是相对 publicPath 这个路径的, 在 index.html 文件当中引入的路径也发生相应的变化: 如：<script src="assets/index.js"></script>
         },
         resolve: {
              alias: {
@@ -58,7 +59,9 @@ module.exports =
                 // {
                 //     test: /\.scss$/,
                 //     loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'css-loader', 'sass-loader') // 这里用了样式分离出来的插件，如果不想分离出来，可以直接这样写 loader:'style!css!sass'
-                // }
+                // },
+                // 解析less
+                {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
             ]
         },
         plugins:[

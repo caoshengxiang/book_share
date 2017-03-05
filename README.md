@@ -84,3 +84,6 @@
 #### 其他
 * https://doc.webpack-china.org/guides/migrating/  webpack从 v1 迁移到 v2
 -------------
+
+#### 文档
+* webpack-dev-server文档：http://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli
