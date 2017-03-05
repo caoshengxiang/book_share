@@ -13,7 +13,7 @@
 
 ## 项目
 ### bitbucket
-    [book_share](git@bitbucket.org:caoshengxiang/book_share.git): git@bitbucket.org:caoshengxiang/book_share.git
+[book_share](git@bitbucket.org:caoshengxiang/book_share.git): git@bitbucket.org:caoshengxiang/book_share.git
 ------------
 
 ### package.json
@@ -71,6 +71,11 @@
 ```
     "extract-text-webpack-plugin": "^2.0.0",
 ```
+#### 压缩CSS模块(注:因为没有用style-loader打包到js里所以webpack.optimize.UglifyJsPlugin的压缩本身对独立css不管用)
+```
+    "optimize-css-assets-webpack-plugin": "^1.3.0",
+```
+
 ------------
 
 
@@ -83,7 +88,10 @@
 
 #### 其他
 * webpack从 v1 迁移到 v2: [https://doc.webpack-china.org/guides/migrating/](https://doc.webpack-china.org/guides/migrating/)
--------------
+
+
 
 #### 文档
 * webpack-dev-server文档：[http://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli](http://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli)
+
+-------------
