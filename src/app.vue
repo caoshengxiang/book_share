@@ -9,6 +9,8 @@
 
         <one></one>
         <two></two>
+
+        {{ ajaxData }}
     </div>
 </template>
 
@@ -22,7 +24,8 @@
         name: 'App',
         data() {
             return {
-                hello: 'hello, allen.'
+                hello: 'hello, allen.',
+                ajaxData: '',
             }
         },
         components: {
@@ -30,6 +33,7 @@
             two,
         },
         created() {
+            // get
             $.ajax({
                 type: "GET",
                 url: 'http://localhost:3000/people',
@@ -41,7 +45,49 @@
                 error() {
                     alert('error')
                 }
-            })
+            });
+
+            // post
+//            $.post('http://localhost:3000/people', {
+//                "name": "allen",
+//                "sex": "man",
+//                "age": 18
+//            }, (data)=>{
+//                alert(data)
+//            })
+
+            // put
+            $.ajax({
+                type: "put",
+                url: 'http://localhost:3000/people/2',
+                data: {
+                    "name": "jak",
+                    "sex": "man",
+                    "age": 20
+                },
+                dataType: 'json',
+                success(data) {
+                    console.log(data, "PUT 成功返回数据")
+                },
+                error() {
+                    alert('error')
+                }
+            });
+            // DELETE
+            /*$.ajax({
+                type: "delete",
+                url: 'http://localhost:3000/people/3',
+                data: {
+                    "id": 3
+                },
+                dataType: 'json',
+                success(data) {
+                    console.log(data, "delete 成功返回数据")
+                },
+                error() {
+                    alert('error')
+                }
+            });*/
         }
     }
 </script>

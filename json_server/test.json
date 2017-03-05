@@ -11,6 +11,12 @@
       "sex": "women",
       "age": 18,
       "id": 1
+    },
+    {
+      "name": "jak",
+      "sex": "man",
+      "age": "20",
+      "id": 2
     }
   ]
 }
