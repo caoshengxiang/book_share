@@ -77,13 +77,13 @@
 
 ### 参考
 #### webpack2、vue2项目配置教程
-* http://www.jianshu.com/p/a5361bff1cd8 
-* http://blog.csdn.net/github_26672553/article/details/52801047
+* [http://www.jianshu.com/p/a5361bff1cd8](http://www.jianshu.com/p/a5361bff1cd8)
+* [http://blog.csdn.net/github_26672553/article/details/52801047](http://blog.csdn.net/github_26672553/article/details/52801047)
 
 
 #### 其他
-* https://doc.webpack-china.org/guides/migrating/  webpack从 v1 迁移到 v2
+* webpack从 v1 迁移到 v2: [https://doc.webpack-china.org/guides/migrating/](https://doc.webpack-china.org/guides/migrating/)
 -------------
 
 #### 文档
-* webpack-dev-server文档：http://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli
+* webpack-dev-server文档：[http://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli](http://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli)
