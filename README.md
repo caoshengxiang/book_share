@@ -11,6 +11,28 @@
     2. npm install
     3. npm run dev
 
+### json-server安装及使用
+>    安装：$ npm install -g json-server
+     使用：
+      1. cd .json目录
+      2. json-server *.json
+      3. 访问：控制台地址http://localhost:3000
+      4. webstorm 按两下Shift键搜索 restful进入REST Client，可查看及操作数据（response、request）(You can use any HTTP verbs (GET, POST, PUT, PATCH and DELETE) and access your resources from anywhere using CORS or JSONP.)
+       == 注意： ==
+        POST，PUT或PATCH请求应包含一个Content-Type: application/json标头，以在请求正文中使用JSON。否则将导致200 OK，但不会对数据进行更改。
+
+>   ==restful==
+    GET（SELECT）：从服务器取出资源（一项或多项）。
+    POST（CREATE）：在服务器新建一个资源。
+    PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。
+    PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。
+    DELETE（DELETE）：从服务器删除资源。
+
+参考文档:
+[https://github.com/typicode/json-server](https://github.com/typicode/json-server)
+教程：
+[https://egghead.io/lessons/nodejs-creating-demo-apis-with-json-server](https://egghead.io/lessons/nodejs-creating-demo-apis-with-json-server)
+
 ## 项目
 ### bitbucket
 [book_share](git@bitbucket.org:caoshengxiang/book_share.git): git@bitbucket.org:caoshengxiang/book_share.git
@@ -75,9 +97,13 @@
 ```
     "optimize-css-assets-webpack-plugin": "^1.3.0",
 ```
+#### 组件
+```
+    "jquery": "^3.1.1",
+```
+
 
 ------------
-
 
 
 ### 参考
@@ -93,5 +119,7 @@
 
 #### 文档
 * webpack-dev-server文档：[http://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli](http://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli)
+
+* json-server文档、教程：[https://github.com/typicode/json-server](https://github.com/typicode/json-server)
 
 -------------

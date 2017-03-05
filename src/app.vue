@@ -8,6 +8,7 @@
 
 
         <one></one>
+        <two></two>
     </div>
 </template>
 
@@ -15,6 +16,8 @@
     import './style/color.css';
     import './style/sass_test.scss'
     import one from './components/one.vue'
+    import two from 'components/two.vue'
+    import $ from 'jquery'
     export default {
         name: 'App',
         data() {
@@ -24,6 +27,21 @@
         },
         components: {
             one,
+            two,
+        },
+        created() {
+            $.ajax({
+                type: "GET",
+                url: 'http://localhost:3000/people',
+                data: {},
+                dataType: 'json',
+                success(data) {
+                    console.log(data)
+                },
+                error() {
+                    alert('error')
+                }
+            })
         }
     }
 </script>
