@@ -23,7 +23,7 @@
     import './style/sass_test.scss'
     import one from './components/one.vue'
     import two from './components/two.vue'
-    import $ from 'jquery'
+//    import $ from 'jquery'
     export default {
         name: 'App',
         data() {
