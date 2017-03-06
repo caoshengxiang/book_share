@@ -42,7 +42,7 @@
                         loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader'})
 ```
 
-== 待解 ==
+== 解 ==
 ### repository access denied. access via a deployment key is read-only.
     fatal: Could not read from remote repository.
 > 1.您可以随时使用https在您的服务器上设置第二个远程：
@@ -50,7 +50,7 @@
     然后，您可以进行小编辑，提交，然后使用命令
     git push edit-only-origin
     这将提示您输入用户名和密码。
-
+    2.正解，因为bitbucket中的ssh密钥默认使用.ssh目录下的id_rsa，我生成迷药时改成其他名字。所以直接复制id_rsa.pub，添加密钥
 == 待解 ==
 ### npm run build生成莫名生成main.js（内容和index.js相同）
 >
