@@ -14,7 +14,7 @@ module.exports =
         output: {
             path: path.resolve(__dirname+'/built/'),  //输出文件夹
             filename:'[name].js',   //最终打包生成的文件名(只是文件名，不带路径的哦)
-            // publicPath: '/client/assets/', // webpack-dev-server 伺服的文件是相对 publicPath 这个路径的, 在 index.html 文件当中引入的路径也发生相应的变化: 如：<script src="assets/index.js"></script>
+            // publicPath: '/', // webpack-dev-server 伺服的文件是相对 publicPath 这个路径的, 在 index.html 文件当中引入的路径也发生相应的变化: 如：<script src="assets/index.js"></script>
         },
         resolve: {
             // 别名设置,主要是为了配和webpack.ProvidePlugin设置全局插件;
@@ -70,6 +70,17 @@ module.exports =
                 // },
                 // 解析less
                 {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
+
+
+                // 图片
+                {
+                  test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                  loader: 'url-loader',
+                  query: {
+                    limit: 10000,
+                    name: 'img/[name].[hash:7].[ext]'
+                  }
+                },
             ]
         },
         plugins:[
@@ -77,9 +88,11 @@ module.exports =
             new HtmlWebpackPlugin({
                 filename: path.resolve(__dirname+'/built/index.html'),   // 目标文件
                 template: path.resolve(__dirname+'/client/index.html'), //模板文件
-                inject:'body',
+
+                inject:'body', //要把script插入到标签里
                 hash:true,  //代表js文件后面会跟一个随机字符串,解决缓存问题
-                chunks:["index"]
+                chunks:["index"], // chunks这个参数告诉插件要引用entry里面的哪几个入口
+
             }),
 
             new ExtractTextPlugin("css/style.css"), //提取出来的样式放在style.css文件中
@@ -100,9 +113,11 @@ module.exports =
             }),
 
             //webpack内置自动加载插件配合resolve.alias做全局插件;
-            new webpack.ProvidePlugin({
-                $: 'jquery'                              //文件里遇见‘$’加载jquery;
-            })
+
+            // new webpack.ProvidePlugin({
+            //     $: 'jquery'                              //文件里遇见‘$’加载jquery;
+            // })
+
         ],
         devServer: {    // 设置本地Server;
             contentBase: path.join(__dirname,'built'),  // 设置启动文件目录;

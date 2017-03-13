@@ -1,6 +1,7 @@
 <template>
     <div>
         two component ----
+        <img src="../../assets/car.jpg" alt="">
     </div>
 </template>
 

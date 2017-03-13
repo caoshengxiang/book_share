@@ -72,6 +72,9 @@
     
     // vue文件<style>样式
     "vue-style-loader": "^2.0.3",
+
+    // 图片
+    "url-loader": "^0.5.8",
 ```
 ##### 生成html
 ```

@@ -1,35 +1,26 @@
 <template>
     <div class="app">
-        {{ hello }}
-
-        <div class="color">import css 文件</div>
-        <div class="sass-test"><div class="test">import sass 文件</div></div>
-        <div class="test">@import less</div>
-
-
-        <one></one>
-        <two></two>
-
         <ul>
-            <li v-for="item in ajaxData">
-                my name is {{item.name}},sex: {{item.sex}},age: {{item.age}}
+            <li v-for="item in menu">
+                <router-link :to="item.path">{{item.name}}</router-link>
             </li>
         </ul>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import './style/color.css';
-    import './style/sass_test.scss'
-    import one from './components/one.vue'
-    import two from './components/two.vue'
-//    import $ from 'jquery'
+    import one from './pages/p1/one.vue'
+    import two from './pages/p2/two.vue'
+    import $ from 'jquery'
     export default {
         name: 'App',
         data() {
             return {
-                hello: 'hello, allen.',
-                ajaxData: [],
+                menu: [
+                  {name: 'p1', path: '/p1'},
+                  {name: 'p2', path: '/p2'},
+                ]
             }
         },
         components: {
@@ -101,8 +92,5 @@
 </script>
 
 <style lang="sass" rel="">
-    @import "style/test.less";
-    .app{
-        color: red;
-    }
+
 </style>

@@ -25,19 +25,22 @@
     "optimize-css-assets-webpack-plugin": "^1.3.0",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
     "vue": "^2.2.1",
     "vue-hot-reload-api": "^2.0.11",
     "vue-loader": "^11.1.4",
+    "vue-router": "^2.3.0",
     "vue-style-loader": "^2.0.3",
     "vue-template-compiler": "^2.2.1",
+    "vuex": "^2.2.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && webpack --progress -- colors",
-    "dev": "npm run clean && webpack-dev-server --inline --hot --progress --colors --open",
-    "clean": "rm -rf dist"
+    "build": "npm run clear && webpack --progress -- colors",
+    "dev": "npm run clear && webpack-dev-server --inline --hot --progress --colors --open",
+    "clear": "rm -rf built"
   },
   "repository": {
     "type": "git",

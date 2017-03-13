@@ -54,3 +54,6 @@
 == 待解 ==
 ### npm run build生成莫名生成main.js（内容和index.js相同）
 >
+
+### npm run dev有页面使用npm run build打开index.html空的
+> publicPath设置问题，（待解，暂时注释解决，嵌入index.html的src路径是问题）
