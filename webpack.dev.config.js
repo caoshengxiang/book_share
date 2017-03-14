@@ -19,7 +19,9 @@ config.devServer = {    // 设置本地Server;
   port: 8080,      // 设置端口号；
   compress: true, // 设置gzip压缩;
   inline:true,  // 开启更新客户端入口(可在package.json scripts 里设置 npm run xxx);
-  hot: true,    // 设置热更新(可在package.json scripts 里设置 npm run xxx);
+
+  // ？？？？ hot 设在这里npm run dev 是空白页面
+  // hot: true,    // 设置热更新(可在package.json scripts 里设置 npm run xxx);
   open: true, // 打开浏览器
 };
 config.plugins = [

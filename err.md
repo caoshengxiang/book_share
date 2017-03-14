@@ -33,14 +33,6 @@
     引入时错误： import 'color.css';
     解决：import './color.css';
 
-== 待解 ==
-### import '*.scss'; ExtractTextPlugin 提取的css文件依然是sass语法 ？？？？？？？
-```
-     // 解析.css文件
-                    {
-                        test: /\.(css|scss|sass)$/,
-                        loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader'})
-```
 
 == 解 ==
 ### repository access denied. access via a deployment key is read-only.
