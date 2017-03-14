@@ -12,6 +12,7 @@ const p2 = resolve => require.ensure([], () => resolve(require('../pages/p2/two.
 
 
 export default new Router({
+  // mode: 'history', // 这个模式路由没有#
   routes: [
     {
       path: '',
