@@ -1,2 +1,1 @@
-test
-note
+"dev": "export NODE_ENV=development && webpack-dev-server --progress --colors --hot --quiet",
