@@ -2,7 +2,8 @@
     <div>
         <div class="less-test">
             <div class="test">
-                p1 {{ count }} <button @click="cliadd">add</button>
+                p1 {{ count }}
+                <button @click="cliadd">add</button>
 
                 <div id="data">
 
@@ -17,36 +18,47 @@
     export default {
         name: 'One',
         data() {
-          return {
-          }
+            return {}
         },
         computed: {
-          count() {
-            return this.$store.state.count;
-          }
+            count() {
+                return this.$store.state.count;
+            }
         },
         methods: {
-          cliadd() {
-            alert()
-          }
+            cliadd() {
+                alert()
+            },
+            fet(url) {
+                fetch(url).then(function (res) {
+                    return res.json()
+                }).then(function (data) {
+                    console.log(data)
+                }).catch(function (e) {
+                    console.log(e)
+                })
+            }
         },
         created() {
-          const that = this;
+            const that = this;
 
             // get
-            $.ajax({
-              type: "GET",
-              url: 'http://localhost:3000/people',
-              data: {},
-              dataType: 'json',
-              success(data) {
-                console.log(data, "get 数据成功返回")
-                that.ajaxData = data;
-              },
-              error() {
-                console.log('ajax获取数据失败')
-              }
-            });
+//            $.ajax({
+//              type: "GET",
+//              url: 'http://localhost:3000/people',
+//              data: {},
+//              dataType: 'json',
+//              success(data) {
+//                console.log(data, "get 数据成功返回")
+//                that.ajaxData = data;
+//              },
+//              error() {
+//                console.log('ajax获取数据失败')
+//              }
+//            });
+
+            this.fet('http://localhost:3000/people')
+
 
             // post
             //            $.post('http://localhost:3000/people', {

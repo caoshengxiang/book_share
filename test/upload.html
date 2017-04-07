@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+</head>
+<body>
+<input type="file" onchange="FW(event)" filetype="image/*"/>
+<img src="" alt="" id="img">
+</body>
+<script>
+    //    var id = document.getElementById('file');
+    //    var img = document.querySelector('#img');
+    //    id.onchange = function() {
+    //        img.src = id.value;
+    //    }
+    function FW(event) {
+        var input = event.target;
+        var reader = new FileReader();
+        console.log(input)
+        console.log(reader)
+        reader.onload = function () { alert()
+            console.log(reader.result)
+            var dataAF = reader.result;
+            httpHelper({
+                type: 'post',
+                async: 'true',
+                data: dataAF,
+                success: function () {
+                    //上传成功
+                },
+                error: function () {
+                    //上传失败
+                }
+            });
+        };
+//        reader.readAsDataBuffer(input.files[0]);
+    };
+    function httpHelper(params) {
+        var request;
+        if (XMLHttpRequest)
+            request = new XMLHttpRequest();
+        else
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        request.onreadystatechange = function () {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    if (params.success)
+                        params.success(request.responseText);
+                }
+                else if (parseInt(request.status / 100) == 4) {
+                    if (params.error)
+                        params.error(request.responseText);
+                }
+            }
+        }
+        request.open(params.type, params.url, params.async);
+        try {
+            request.send(params.data || null);
+        } catch (e) {
+            if (params.error)
+                params.error(request.responseText);
+        }
+    }
+</script>
+</html>

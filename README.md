@@ -4,12 +4,18 @@
 ### 安装环境
     * git 
     * node/npm
-    * 
+    * npm install -g json-server 全局安装，前端模拟数据借口
+    * npm install -g supervisor 服务器热更新
 
 ### 运行项目
     1. git clone git@bitbucket.org:caoshengxiang/book_share.git
     2. npm install
+    3. json-server json_server/test.json
     3. npm run dev
+
+    生产环境
+    1. npm run build 打包到server/public目录下
+    2. npm run start 启动服务器
 
 ### json-server安装及使用
      安装：

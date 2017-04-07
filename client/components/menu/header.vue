@@ -14,8 +14,11 @@
         data() {
             return {
                 menu: [
-                    {name: 'p1', path: '/p1'},
-                    {name: 'p2', path: '/p2'},
+                    {name: '我读', path: '/read'},
+                    {name: '动态', path: '/dynamic'},
+                    {name: '分类', path: '/category'},
+                    {name: '纸书', path: '/paper'},
+                    {name: '热榜', path: '/hot'},
                 ]
             }
         }
