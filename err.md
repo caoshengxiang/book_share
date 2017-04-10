@@ -49,3 +49,9 @@
 
 ### npm run dev有页面使用npm run build打开index.html空的
 > publicPath设置问题，（待解，暂时注释解决，嵌入index.html的src路径是问题）
+
+### 组建使用header警告，
+> header为标签，需修改名称
+
+### You may need an appropriate loader to handle this file type.
+> webpack配置没有添加相应的loader

@@ -96,6 +96,11 @@ var config = {
           name: 'img/[name].[hash:7].[ext]'
         }
       },
+        //字体
+        {
+            test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+            loader: 'url-loader?name=fonts/[name].[md5:hash:hex:7].[ext]',
+        }
     ]
   },
   plugins: [

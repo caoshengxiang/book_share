@@ -1,21 +1,27 @@
 <template>
     <div>
-        <Header></Header>
+        <page-header></page-header>
         <router-view></router-view>
+
+        <recommend-book></recommend-book>
     </div>
 </template>
 <script>
-    import Header from '../components/menu/header.vue'
+    import pageHeader from '../components/menu/header.vue'
+    import recommendBook from './recommend_book.vue'
+
     export default {
         name: '',
         props: {},
         data() {
-            return {}
+            return {
+            }
         },
         computed: {},
         methods: {},
         components: {
-            Header,
+            pageHeader,
+            recommendBook,
         },
         beforeCreate(){
         },
@@ -39,5 +45,6 @@
         }
     }
 </script>
-<style scoped>
+<style scoped lang="sass" rel="stylesheet/scss">
+
 </style>

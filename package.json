@@ -6,7 +6,9 @@
   "directories": {
     "doc": "doc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "element-ui": "^1.2.8"
+  },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
