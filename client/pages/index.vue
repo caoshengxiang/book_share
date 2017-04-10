@@ -45,6 +45,11 @@
         }
     }
 </script>
-<style scoped lang="sass" rel="stylesheet/scss">
+<style lang="sass" rel="stylesheet/scss" scoped>
+    .header {
 
+    }
+    .container {
+
+    }
 </style>

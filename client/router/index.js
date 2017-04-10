@@ -9,9 +9,10 @@ Vue.use(Router)
 
 const page404 = resolve => require.ensure([], () => resolve(require('../404.vue')), 'page404')
 
-const Index = resolve => require.ensure([], () => resolve(require('../pages/index.vue')), 'page1')
-const p1 = resolve => require.ensure([], () => resolve(require('../pages/p1/one.vue')), 'page1')
-const p2 = resolve => require.ensure([], () => resolve(require('../pages/p2/two.vue')), 'page2')
+const Index = resolve => require.ensure([], () => resolve(require('../pages/index.vue')), 'index')
+const Home = resolve => require.ensure([], () => resolve(require('../pages/home/home.vue')), 'home')
+const p1 = resolve => require.ensure([], () => resolve(require('./one.vue')), 'page1')
+const p2 = resolve => require.ensure([], () => resolve(require('./two.vue')), 'page2')
 
 
 export default new Router({
@@ -23,7 +24,7 @@ export default new Router({
             children: [
                 {
                     path: '',
-                    component: p1,
+                    component: Home,
                 },
                 {
                     path: '/read',
