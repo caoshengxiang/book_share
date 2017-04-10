@@ -13,7 +13,7 @@
     </div>
 </template>
 <script>
-    import bookCard from '../components/card/book_card.vue'
+    import bookCard from '../../../components/card/book_card.vue'
     export default {
         name: '',
         props: {},

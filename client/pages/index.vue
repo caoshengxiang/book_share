@@ -2,13 +2,10 @@
     <div>
         <page-header></page-header>
         <router-view></router-view>
-
-        <recommend-book></recommend-book>
     </div>
 </template>
 <script>
     import pageHeader from '../components/menu/header.vue'
-    import recommendBook from './recommend_book.vue'
 
     export default {
         name: '',
@@ -21,7 +18,6 @@
         methods: {},
         components: {
             pageHeader,
-            recommendBook,
         },
         beforeCreate(){
         },

@@ -11,8 +11,8 @@ const page404 = resolve => require.ensure([], () => resolve(require('../404.vue'
 
 const Index = resolve => require.ensure([], () => resolve(require('../pages/index.vue')), 'index')
 const Home = resolve => require.ensure([], () => resolve(require('../pages/home/home.vue')), 'home')
-const p1 = resolve => require.ensure([], () => resolve(require('./one.vue')), 'page1')
-const p2 = resolve => require.ensure([], () => resolve(require('./two.vue')), 'page2')
+const p1 = resolve => require.ensure([], () => resolve(require('../pages/read/one.vue')), 'page1')
+const p2 = resolve => require.ensure([], () => resolve(require('../pages/dynamic/two.vue')), 'page2')
 
 
 export default new Router({
