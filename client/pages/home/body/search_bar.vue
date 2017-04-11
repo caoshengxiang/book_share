@@ -1,21 +1,59 @@
 <template>
-    <div>
-        <div class="search-bar">
-            <div>Books Share</div>
-            <form action="" method="get">
-                <input  type="text"/>
-                <input type="submit" value="搜索">
+    <div class="search">
+        <div class="search-bar container">
+            <div class="title" @click="jumpToHome">Books Share</div>
+            <form action="" method="get" class="form">
+                <!--<input  type="text"/>-->
+                <!--<input type="submit" value="搜索">-->
+                <el-input
+                        placeholder="书名"
+                        v-model="searchInput">
+                    <el-button slot="append" icon="search" @click="search"></el-button>
+                </el-input>
             </form>
+
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: ''
+        data() {
+          return {
+              searchInput: '',
+          }
+        },
+        methods: {
+            search() {
+                alert(this.searchInput);
+            },
+            jumpToHome() {
+                this.$router.push('/');
+            }
+        }
     }
 </script>
 
 <style lang="sass" rel="stylesheet/scss" scoped>
+    .search {
+        width: 100%;
+        background: #e9e9e2;
+    }
+    .search-bar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
 
+        .title {
+            margin-right: 10px;
+            font-weight: 800;
+            font-size: 26px;
+            color: #614e3c;
+            cursor: pointer;
+        }
+        .form {
+            width: 50%;
+        }
+    }
 </style>

@@ -5,7 +5,7 @@
         </div>
         <div>
             <el-row :gutter="20">
-                <el-col :span="6" :xs="24" v-for="(item, index) in remBookList" :key="item.id">
+                <el-col :span="6" :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in remBookList" :key="item.id">
                     <book-card :bookItem="item"></book-card>
                 </el-col>
             </el-row>

@@ -11,8 +11,7 @@
         name: '',
         props: {},
         data() {
-            return {
-            }
+            return {}
         },
         computed: {},
         methods: {},
@@ -43,9 +42,6 @@
 </script>
 <style lang="sass" rel="stylesheet/scss" scoped>
     .header {
-
-    }
-    .container {
 
     }
 </style>
