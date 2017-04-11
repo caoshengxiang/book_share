@@ -1,13 +1,9 @@
 <template>
-    <div>
-        <page-header></page-header>
-        <router-view></router-view>
-        <page-footer></page-footer>
+    <div class="footer">
+        footer
     </div>
 </template>
 <script>
-    import pageHeader from '../components/menu/header.vue'
-    import pageFooter from '../components/menu/footer.vue'
 
     export default {
         name: '',
@@ -17,10 +13,7 @@
         },
         computed: {},
         methods: {},
-        components: {
-            pageHeader,
-            pageFooter,
-        },
+        components: {},
         beforeCreate(){
         },
         created() {
@@ -44,7 +37,8 @@
     }
 </script>
 <style lang="sass" rel="stylesheet/scss" scoped>
-    .header {
-
+    .footer {
+        height: 200px;
+        border: 1px solid #ccc;
     }
 </style>

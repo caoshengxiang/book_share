@@ -1,14 +1,7 @@
 <template>
     <div>
         <div class="less-test">
-            <div class="test">
-                p1 {{ count }}
-                <button @click="cliadd">add</button>
 
-                <div id="data">
-
-                </div>
-            </div>
         </div>
     </div>
 </template>

@@ -11,8 +11,11 @@ const page404 = resolve => require.ensure([], () => resolve(require('../404.vue'
 
 const Index = resolve => require.ensure([], () => resolve(require('../pages/index.vue')), 'index')
 const Home = resolve => require.ensure([], () => resolve(require('../pages/home/home.vue')), 'home')
-const p1 = resolve => require.ensure([], () => resolve(require('../pages/read/one.vue')), 'page1')
-const p2 = resolve => require.ensure([], () => resolve(require('../pages/dynamic/two.vue')), 'page2')
+const read = resolve => require.ensure([], () => resolve(require('../pages/read/read.vue')), 'read')
+const dynamic = resolve => require.ensure([], () => resolve(require('../pages/dynamic/dynamic.vue')), 'dynamic')
+const paper = resolve => require.ensure([], () => resolve(require('../pages/paper/paper.vue')), 'paper')
+const hotList = resolve => require.ensure([], () => resolve(require('../pages/list/list.vue')), 'list')
+
 
 
 export default new Router({
@@ -28,19 +31,19 @@ export default new Router({
                 },
                 {
                     path: '/read',
-                    component: p1,
+                    component: read,
                 }, {
                     path: '/dynamic',
-                    component: p2
+                    component: dynamic
                 }, {
                     path: '/category',
-                    component: p2
+                    component: page404
                 }, {
                     path: '/paper',
-                    component: p2
+                    component: paper
                 }, {
                     path: '/hot',
-                    component: p2
+                    component: hotList
                 }, {
                     path: '*',
                     component: page404

@@ -1,13 +1,11 @@
 <template>
     <div>
-        <page-header></page-header>
-        <router-view></router-view>
-        <page-footer></page-footer>
+        <video loop autoplay>
+            <source src="../../assets/list/video/bookvideo.mp4" type="video/mp4">
+        </video>
     </div>
 </template>
 <script>
-    import pageHeader from '../components/menu/header.vue'
-    import pageFooter from '../components/menu/footer.vue'
 
     export default {
         name: '',
@@ -17,10 +15,7 @@
         },
         computed: {},
         methods: {},
-        components: {
-            pageHeader,
-            pageFooter,
-        },
+        components: {},
         beforeCreate(){
         },
         created() {
@@ -44,7 +39,4 @@
     }
 </script>
 <style lang="sass" rel="stylesheet/scss" scoped>
-    .header {
-
-    }
 </style>
