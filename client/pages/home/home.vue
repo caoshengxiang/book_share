@@ -1,7 +1,9 @@
 <template>
     <div>
         <search-bar></search-bar>
-        <recommend-book></recommend-book>
+        <div class="container rec">
+            <recommend-book></recommend-book>
+        </div>
     </div>
 </template>
 
@@ -21,5 +23,7 @@
 </script>
 
 <style lang="sass" rel="stylesheet/scss" scoped>
-
+    .rec {
+        margin-top: 20px;
+    }
 </style>
