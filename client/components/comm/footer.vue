@@ -39,6 +39,8 @@
 <style lang="sass" rel="stylesheet/scss" scoped>
     .footer {
         height: 200px;
-        border: 1px solid #ccc;
+        /*border: 1px solid #ccc;*/
+        background: #f6f6f1;
+        margin-top: 20px;
     }
 </style>
