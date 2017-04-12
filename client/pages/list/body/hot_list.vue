@@ -40,11 +40,12 @@
     }
 </script>
 <style lang="sass" rel="stylesheet/scss" scoped>
+    @import "../../../styles/var";
     .hot-list{
         color: #ffffff;
 
         ul {
-            width: 1024px;
+            width: $pageContent;
             display: flex;
             justify-content: center;
             margin: 0 auto;

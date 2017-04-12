@@ -153,10 +153,11 @@
     }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="sass" rel="stylesheet/scss">
+    @import "../../styles/var";
     .read {
         .read-con {
-            width: 1024px;
+            width: $pageContent;
             margin: 50px auto;
             min-height: 600px;
         }

@@ -110,6 +110,7 @@
     }
 </script>
 <style lang="sass" rel="stylesheet/scss" scoped>
+    @import "../../styles/var";
     .list {
 
     }
@@ -119,7 +120,7 @@
         position: absolute;
         top: 20px;
         left: 10%;
-        max-width: 1024px;
+        max-width: $pageContent;
         min-width: 950px;
         z-index: 3;
         a{
@@ -149,14 +150,14 @@
         .video{
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 300%;
-            height: 100%;
+            left: 0%;
+            width: 100%;
+            /*height: 100%;*/
         }
     }
     .hot-list {
         position: absolute;
-        bottom: 100px;
+        bottom: 10%;
         z-index: 3;
         width: 100%;
     }

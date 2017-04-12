@@ -40,9 +40,9 @@
 </script>
 
 <style lang="sass" rel="stylesheet/scss">
-
+    @import "../../styles/var";
     .dynamic-con {
-        width: 1024px;
+        width: $pageContent;
         margin: 50px auto;
         position: relative;
     }
