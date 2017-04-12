@@ -15,6 +15,7 @@ const read = resolve => require.ensure([], () => resolve(require('../pages/read/
 const dynamic = resolve => require.ensure([], () => resolve(require('../pages/dynamic/dynamic.vue')), 'dynamic')
 const paper = resolve => require.ensure([], () => resolve(require('../pages/paper/paper.vue')), 'paper')
 const hotList = resolve => require.ensure([], () => resolve(require('../pages/list/list.vue')), 'list')
+const category = resolve => require.ensure([], () => resolve(require('../pages/category/category.vue')), 'category')
 
 
 
@@ -37,7 +38,7 @@ export default new Router({
                     component: dynamic
                 }, {
                     path: '/category',
-                    component: page404
+                    component: category
                 }, {
                     path: '/paper',
                     component: paper
