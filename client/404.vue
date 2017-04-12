@@ -1,7 +1,7 @@
 
 <template>
 	<div id="content"> 
-		<div class="scale">BS 404</div>
+		<div class="scale"><a href="/">BS 404</a></div>
 	</div>
 </template>
 <style>

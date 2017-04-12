@@ -1,15 +1,19 @@
 <template>
     <div>
+        <page-header></page-header>
         <search-bar></search-bar>
         <div class="container rec">
             <recommend-book></recommend-book>
             <score-book></score-book>
         </div>
+        <page-footer></page-footer>
     </div>
 </template>
 
 <script>
-    import searchBar from './body/search_bar.vue'
+    import pageHeader from '../../components/comm/header.vue'
+    import pageFooter from '../../components/comm/footer.vue'
+    import searchBar from '../../components/comm/search_bar.vue'
     import recommendBook from './body/recommend_book.vue'
     import scoreBook from './body/score_book.vue'
     export default {
@@ -18,6 +22,8 @@
             return {}
         },
         components: {
+            pageHeader,
+            pageFooter,
             searchBar,
             recommendBook,
             scoreBook,

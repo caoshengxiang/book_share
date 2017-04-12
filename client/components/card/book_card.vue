@@ -1,7 +1,7 @@
 <template>
     <div class="book">
         <el-card :body-style="{ padding: '0px'}">
-            <div class="img-box">
+            <div class="img-box" :style="{height: imgHeight+'px'}">
                 <img :src="bookItem.img" class="image">
             </div>
 
@@ -24,14 +24,20 @@
         },
         props: {
             bookItem: {
-                default: {
-                    img: '',
-                    name: '',
-                    author: '',
-                    keybord: '',
-                    tag: '',
+                default(){
+                    return {
+                        img: '',
+                        name: '',
+                        author: '',
+                        keybord: '',
+                        tag: '',
+                    }
                 },
                 type: Object,
+            },
+            imgHeight: {
+                default: 395,
+                type: Number,
             }
         },
         computed: {},

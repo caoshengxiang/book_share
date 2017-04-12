@@ -1,36 +1,90 @@
 <template>
     <div>
-        <div class="less-test">
+        <div class="read">
+            <page-header></page-header>
+            <search-bar></search-bar>
+            <div class="read-con">
+                <read-con-header></read-con-header>
 
+                <el-row :gutter="20">
+                    <el-col :span="6" v-for="item in bookLists" :key="item.id">
+                        <book-card :bookItem="item" :imgHeight="325"></book-card>
+                    </el-col>
+                </el-row>
+
+            </div>
+            <page-footer></page-footer>
         </div>
     </div>
 </template>
 
 <script>
     import $ from 'jquery'
+    import pageHeader from '../../components/comm/header.vue'
+    import pageFooter from '../../components/comm/footer.vue'
+    import searchBar from '../../components/comm/search_bar.vue'
+
+    import readConHeader from './body/read_con_header.vue'
+    import bookCard from '../../components/card/book_card.vue'
+
     export default {
         name: 'One',
         data() {
-            return {}
+            return {
+                bookLists: [
+                    {
+                        img: 'https://img1.doubanio.com/lpic/s29260049.jpg',
+                        name: '美丽小宇宙',
+                        author: '毕淑敏',
+                        tag: '推荐',
+                        id: '1'
+                    },{
+                        img: 'https://img1.doubanio.com/lpic/s29287637.jpg',
+                        name: '深暗',
+                        author: '[美] 赫克托·托巴尔',
+                        tag: '推荐',
+                        id: '4'
+                    }, {
+                        img: 'https://img1.doubanio.com/lpic/s29205408.jpg',
+                        name: '如何听懂音乐',
+                        author: '[美] 艾伦·科普兰',
+                        tag: '推荐',
+                        id: '5'
+                    }, {
+                        img: 'https://img1.doubanio.com/lpic/s29399468.jpg',
+                        name: '圆环',
+                        author: '[美] 戴夫·艾格斯',
+                        tag: '推荐',
+                        id: '6'
+                    }
+                ]
+            }
         },
         computed: {
-            count() {
-                return this.$store.state.count;
-            }
+//            count() {
+//                return this.$store.state.count;
+//            }
         },
         methods: {
-            cliadd() {
-                alert()
-            },
-            fet(url) {
-                fetch(url).then(function (res) {
-                    return res.json()
-                }).then(function (data) {
-                    console.log(data)
-                }).catch(function (e) {
-                    console.log(e)
-                })
-            }
+//            cliadd() {
+//                alert()
+//            },
+//            fet(url) {
+//                fetch(url).then(function (res) {
+//                    return res.json()
+//                }).then(function (data) {
+//                    console.log(data)
+//                }).catch(function (e) {
+//                    console.log(e)
+//                })
+//            }
+        },
+        components: {
+            pageHeader,
+            pageFooter,
+            searchBar,
+            readConHeader,
+            bookCard,
         },
         created() {
             const that = this;
@@ -50,7 +104,7 @@
 //              }
 //            });
 
-            this.fet('http://localhost:3000/people')
+//            this.fet('http://localhost:3000/people')
 
 
             // post
@@ -100,9 +154,11 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
-    .less-test {
-        .test {
-            color: salmon;
+    .read {
+        .read-con {
+            width: 1024px;
+            margin: 50px auto;
+            min-height: 600px;
         }
     }
 </style>

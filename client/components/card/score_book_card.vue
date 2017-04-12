@@ -1,7 +1,7 @@
 <template>
     <div class="score-card">
         <el-row :gutter="30">
-            <el-col :span="12" v-for="item in bookList">
+            <el-col :span="12" v-for="item in bookList" :key="item.id">
                 <div class="book-item">
                     <img :src="item.img" :alt="item.name" class="img">
                     <div class="item-detail">

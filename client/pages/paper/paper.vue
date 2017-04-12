@@ -1,20 +1,23 @@
 <template>
     <div class="paper">
+        <page-header></page-header>
+        <search-bar></search-bar>
         <div class="carousel container">
 
             <el-carousel indicator-position="outside" height="230px">
-                <el-carousel-item v-for="item in carousel">
+                <el-carousel-item v-for="(item, index) in carousel" :key="index">
                     <img class="caro-img" :src="item" alt="">
                 </el-carousel-item>
             </el-carousel>
 
             <el-row :gutter="30" style="margin-top: 80px;">
-                <el-col :span="12" v-for="item in paperBooks" style="margin-top: 30px;">
+                <el-col :span="12" v-for="item in paperBooks" :key="item.id" style="margin-top: 30px;">
                     <paper-card :paperBook="item"></paper-card>
                 </el-col>
             </el-row>
 
         </div>
+        <page-footer></page-footer>
     </div>
 </template>
 <script>
@@ -29,6 +32,10 @@
     import paperCard from '../../components/card/paper_card.vue'
     import img11 from '../../assets/paper/cardpic/1676.jpg'
     import img12 from '../../assets/paper/cardpic/1679.jpg'
+
+    import pageHeader from '../../components/comm/header.vue'
+    import pageFooter from '../../components/comm/footer.vue'
+    import searchBar from '../../components/comm/search_bar.vue'
 
     export default {
         name: '',
@@ -53,7 +60,10 @@
         computed: {},
         methods: {},
         components: {
+            pageHeader,
+            pageFooter,
             paperCard,
+            searchBar,
         },
 
     }

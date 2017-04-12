@@ -1,13 +1,9 @@
 <template>
     <div>
-        <page-header></page-header>
         <router-view></router-view>
-        <page-footer></page-footer>
     </div>
 </template>
 <script>
-    import pageHeader from '../components/menu/header.vue'
-    import pageFooter from '../components/menu/footer.vue'
 
     export default {
         name: '',
@@ -18,8 +14,6 @@
         computed: {},
         methods: {},
         components: {
-            pageHeader,
-            pageFooter,
         },
         beforeCreate(){
         },
