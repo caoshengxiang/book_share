@@ -22,7 +22,7 @@
   "account": [
     {
       "id": 0,
-      "username": "allen",
+      "name": "allen",
       "password": "123456"
     }
   ]

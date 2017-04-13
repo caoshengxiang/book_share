@@ -55,3 +55,6 @@
 
 ### You may need an appropriate loader to handle this file type.
 > webpack配置没有添加相应的loader
+
+### webpack-dev-server 不能通过ip地址访问（不能通过手机查看）
+> 将host改为 0.0.0.0

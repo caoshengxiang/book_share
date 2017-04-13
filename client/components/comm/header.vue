@@ -6,11 +6,11 @@
             </li>
         </ul>
 
-        <div v-if="!user" class="sign">
+        <div v-if="!user.name" class="sign">
             <a href="javascript:void(0)" @click="signIn">登录</a>
             <a href="javascript:void(0)" @click="registered">注册</a>
         </div>
-        <div v-else="user" class="out">
+        <div v-else class="out">
             <a href="javascript:void(0)">欢迎，{{user.name}}</a>
             <a href="javascript:void(0)" @click="signOut">退出</a>
         </div>
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+    import config from '../../utils/config'
+    import utils from '../../utils/utils'
     export default {
         name: '',
         data() {
@@ -77,6 +79,7 @@
             },
             signOut() {
                 this.user = '';
+                utils.destoryLocalStorage('user');
                 this.resetForm('form');
             },
 
@@ -84,7 +87,8 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         // ajax
-                        this.user = this.form;
+//                        this.user = this.form;
+                        this.getUserInfo(0); // ajax
                         this.closeDialog();
 
                     } else {
@@ -95,10 +99,24 @@
             },
             resetForm(formName) {
                 this.$refs[formName].resetFields();
+            },
+            getUserInfo(userId) {
+                fetch('http://'+config.host+':'+config.port+'/account/'+userId).then((res)=>{
+                    return res.json()
+                }).then((data)=>{
+                    utils.setLocalStorage('user', data);
+                    this.user = utils.getLocalStorage('user');
+                }).catch((e)=>{
+                    console.log('获取用户数据错误')
+                    console.error(e)
+
+                    utils.setLocalStorage('user', this.form);
+                    this.user = utils.getLocalStorage('user');
+                })
             }
         },
         created() {
-
+            this.user = utils.getLocalStorage('user')
         }
     }
 </script>

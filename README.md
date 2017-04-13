@@ -135,5 +135,5 @@
 #### 设计
 * 看看豆：https://kankandou.com/
 * 豆瓣读书：https://book.douban.com/
-
+* 亚马逊：https://www.amazon.cn/
 -------------
