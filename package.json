@@ -51,7 +51,9 @@
     "build": "export NODE_ENV=production && npm run clear && webpack --progress -- colors",
     "dev": " webpack-dev-server --progress --colors --hot --quiet",
     "clear": "rm -rf server/public/* && rm -rf built",
-    "start": "supervisor ./server/bin/www"
+
+    "sup": "npm run build && supervisor ./server/bin/www",
+    "start": "node ./server/bin/www"
   },
   "repository": {
     "type": "git",

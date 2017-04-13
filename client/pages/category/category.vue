@@ -18,7 +18,7 @@
             <div class="category-lists">
                 <h2 class="cat-head">书籍</h2>
                 <div class="cat-list">
-                    a
+                    <book-list :books="books"></book-list>
                 </div>
             </div>
         </div>
@@ -30,11 +30,27 @@
     import pageHeader from '../../components/comm/header.vue'
     import pageFooter from '../../components/comm/footer.vue'
     import searchBar from '../../components/comm/search_bar.vue'
+    import bookList from './body/book_list.vue'
+
+    import img1 from '../../assets/list/s2801.jpg'
     export default {
         name: '',
         props: {},
         data() {
-            return {}
+            return {
+                books: [
+                    {id: 1, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                    {id: 2, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                    {id: 3, img: img1, name: 'CSS控制文字，超出部分显示省略号', author: '李磊', cat: '小说'},
+                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
+                ],
+            }
         },
         computed: {},
         methods: {
@@ -49,6 +65,7 @@
             pageHeader,
             pageFooter,
             searchBar,
+            bookList,
         },
 
     }
