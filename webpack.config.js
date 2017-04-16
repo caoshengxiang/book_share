@@ -122,7 +122,7 @@ var config = {
 }
 
 // 判断开发环境还是生产环境
-if (process.env.NODE_ENV === 'production') {  // 生产环境
+if (process.env.NODE_ENV === "production") {  // 生产环境
     config.plugins = config.plugins.concat([
         // webpack内置js压缩插件;
         new webpack.optimize.UglifyJsPlugin({
@@ -155,7 +155,8 @@ if (process.env.NODE_ENV === 'production') {  // 生产环境
     config.devtool = 'source-map';
     config.devServer = {    // 设置本地Server;
         contentBase: path.join(__dirname, 'built'),  // 设置启动文件目录;
-        host: '0.0.0.0', // 主机名或IP
+        // host: '0.0.0.0', // 主机名或IP (解决手机不能通过ip访问，但在win下访问不到页面)
+        host: '127.0.0.1', //
         port: 8080,      // 设置端口号；
         compress: true, // 设置gzip压缩;
         inline: true,  // 开启更新客户端入口(可在package.json scripts 里设置 npm run xxx);

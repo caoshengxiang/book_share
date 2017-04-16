@@ -7,7 +7,8 @@
     "doc": "doc"
   },
   "dependencies": {
-    "element-ui": "^1.2.8"
+    "element-ui": "^1.2.8",
+    "md5": "^2.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -48,10 +49,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "export NODE_ENV=production && npm run clear && webpack --progress -- colors",
-    "dev": " webpack-dev-server --progress --colors --hot --quiet",
+    "build": "set NODE_ENV=production&& webpack --progress -- colors",
+    "dev": "set NODE_ENV=devlopment&& webpack-dev-server --progress --colors --hot --quiet",
     "clear": "rm -rf server/public/* && rm -rf built",
-
     "sup": "npm run build && supervisor ./server/bin/www",
     "start": "node ./server/bin/www"
   },

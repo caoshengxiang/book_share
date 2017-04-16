@@ -58,3 +58,12 @@
 
 ### webpack-dev-server 不能通过ip地址访问（不能通过手机查看）
 > 将host改为 0.0.0.0
+
+### NODE_ENV=production 环境变量怎么设置
+> 1. linux: export NODE_ENV=production
+  2. win: set process.env.NODE_ENV = production
+       网上还有说（为测试）：
+             npm i cross-env --save-dev
+            cross-env NODE_ENV=blablabl
+        注意在win下process.env.NODE_ENV ==="production"为false
+        set NODE_ENV=production后面不要加空格

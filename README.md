@@ -17,6 +17,16 @@
     1. npm run build 打包到server/public目录下
     2. npm run start 启动服务器
 
+### 不同环境下修改说明
+    package.json修改：NODE_ENV环境变量设置linux使用export,win下使用set,如下：
+    1. linux: export NODE_ENV=production
+    2. win: set NODE_ENV = production
+           网上还有说（为测试）：
+                 npm i cross-env --save-dev
+                cross-env NODE_ENV=blablabl
+            注意：在win下process.env.NODE_ENV ==="production"为false；
+            set NODE_ENV=production后面不要加空格
+
 ### json-server安装及使用
      安装：
      $ npm install -g json-server
