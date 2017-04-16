@@ -6,20 +6,20 @@
             </li>
         </ul>
 
-        <div v-if="!user.name" class="sign">
+        <div v-if="!user.username" class="sign">
             <a href="javascript:void(0)" @click="signIn">登录</a>
             <a href="javascript:void(0)" @click="registered">注册</a>
         </div>
         <div v-else class="out">
-            <a href="javascript:void(0)">欢迎，{{user.name}}</a>
+            <a href="javascript:void(0)">欢迎，{{user.username}}</a>
             <a href="javascript:void(0)" @click="signOut">退出</a>
         </div>
 
         <!-- 登录 start -->
         <el-dialog title="登陆" size="tiny" v-model="dialogFormVisible">
             <el-form :model="form" :rules="rules" ref="form" label-width="80px">
-                <el-form-item label="用户名" prop="name">
-                    <el-input v-model="form.name" auto-complete="off"></el-input>
+                <el-form-item label="用户名" prop="username">
+                    <el-input v-model="form.username" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="密码" prop="password">
                     <el-input v-model="form.password" auto-complete="off"></el-input>
@@ -35,8 +35,8 @@
         <!-- 注册 start -->
         <el-dialog title="注册" size="tiny" v-model="dialogFormVisible2">
             <el-form :model="form2" :rules="rules2" ref="form2" label-width="100px">
-                <el-form-item label="用户名" prop="name">
-                    <el-input v-model="form2.name" auto-complete="off"></el-input>
+                <el-form-item label="用户名" prop="username">
+                    <el-input v-model="form2.username" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="密码" prop="password">
                     <el-input v-model="form2.password" auto-complete="off"></el-input>
@@ -58,6 +58,7 @@
     import config from '../../utils/config'
     import utils from '../../utils/utils'
     import md5 from 'md5'
+    import $ from 'jquery'
     export default {
         name: '',
         data() {
@@ -72,11 +73,11 @@
                 user: '',
                 dialogFormVisible: false,
                 form: {
-                    name: '',
+                    username: '',
                     password: '',
                 },
                 rules: {
-                    name: [
+                    username: [
                         {required: true, message: '请输入用户名', trigger: 'blur'},
                     ],
                     password: [
@@ -86,12 +87,12 @@
                 },
                 dialogFormVisible2: false,
                 form2: {
-                    name: '',
+                    username: '',
                     password: '',
                     passwordRe: '',
                 },
                 rules2: {
-                    name: [
+                    username: [
                         {required: true, message: '请输入用户名', trigger: 'blur'},
                     ],
                     password: [
@@ -127,8 +128,8 @@
                     if (valid) {
                         // ajax
 //                        this.user = this.form;
-                        this.getUserInfo(0); // ajax
-                        this.closeDialog();
+                        this.userSign(); // ajax
+
 
                     } else {
                         console.log('error submit!!');
@@ -143,14 +144,10 @@
                 fetch('http://'+config.host+':'+config.port+'/account/'+userId).then((res)=>{
                     return res.json()
                 }).then((data)=>{
-                    utils.setLocalStorage('user', data);
-                    this.user = utils.getLocalStorage('user');
+
                 }).catch((e)=>{
                     console.log('获取用户数据错误')
                     console.error(e)
-
-                    utils.setLocalStorage('user', this.form);
-                    this.user = utils.getLocalStorage('user');
                 })
             },
 
@@ -160,18 +157,80 @@
                         // ajax
 //                        this.user = this.form;
                         if(this.form2.password === this.form2.passwordRe){
-                            const md5 = md5(this.form2.password)
-                            this.closeDialog();
+                            this.userReg();
                         } else {
                             this.$alert('两次密码输入不一致！')
                         }
-
-
                     } else {
                         console.log('error submit!!');
                         return false;
                     }
                 });
+            },
+            userSign() {
+//                fetch('/users/signin', {
+//                    method: 'POST',
+//                    headers: {
+//                        'Accept': 'application/json',
+//                        'Content-Type': 'application/x-www-form-urlencoded',
+//                    },
+//                    body: 'username='+this.form.username + '&password=' + md5(this.form.password)
+//                }).then(json).then((data)=>{
+//                    console.log(data)
+//                    switch (data.s) {
+//                        case 0:
+//                            break;
+//                        case 1:
+//                            utils.setLocalStorage('user', data);
+//                            this.user = utils.getLocalStorage('user');
+//                            this.closeDialog();
+//                            break;
+//                        case 2:
+//                            this.$alert("用户名或密码错误")
+//                        default:
+//                            console.log("其他返回")
+//                    }
+//                }).catch((err)=>{
+//                    alert('登录错误')
+//                })
+                $.post('/users/signin', {username :this.form.username, password: md5(this.form.password)}, (data) => {
+                    switch (data.s) {
+                        case 0:
+                            break;
+                        case 1:
+                            utils.setLocalStorage('user', data.d);
+                            this.user = utils.getLocalStorage('user');
+                            this.closeDialog();
+                            break;
+                        case 2:
+                            this.$alert("用户名或密码错误")
+                        default:
+                            console.log("其他返回")
+                    }
+                })
+            },
+            userReg() {
+                $.post('/users/reg', {
+                    username: this.form2.username,
+                    password: md5(this.form2.password)
+                }, (data)=> {
+                    console.log(data)
+                    switch (data.s) {
+                        case 0:
+                            this.$alert("注册出现错误")
+                            break;
+                        case 1:
+                            this.closeDialog();
+                            this.resetForm2('form2')
+                            this.signIn();
+                            break;
+                        case 2:
+                            this.$alert("用户名存在")
+                            break;
+                        default:
+                            console.log("其他返回");
+                    }
+                }, "json");
             },
             resetForm2(formName) {
                 this.$refs[formName].resetFields();

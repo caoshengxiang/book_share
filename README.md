@@ -147,3 +147,12 @@
 * 豆瓣读书：https://book.douban.com/
 * 亚马逊：https://www.amazon.cn/
 -------------
+
+
+# 代码约定
+    1. server日志都以>>> 开头
+    2. 返回数据
+        {
+            s: 1, // 0 server错误，1成功，其他是状态值
+            d: data
+        }

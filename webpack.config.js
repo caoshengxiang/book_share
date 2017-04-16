@@ -111,12 +111,6 @@ var config = {
         //   "$": "jquery"
         // }),
 
-        // new webpack.DefinePlugin({
-        //   'process.env': {
-        //     NODE_ENV: '"production"'
-        //   }
-        // }),
-
         new ExtractTextPlugin("css/style.css"), //提取出来的样式放在style.css文件中
     ]
 }
@@ -149,7 +143,14 @@ if (process.env.NODE_ENV === "production") {  // 生产环境
                 removeComments: true, //移除HTML中的注释
                 collapseWhitespace: true //删除空白符与换行符
             }
-        })
+        }),
+
+        // 使用Webpack的DefinePlugin来指示生产环境,生产模式将由process.env.NODE_ENVVue的源代码确定，默认情况下将处于开发模式。
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: '"production"'
+          }
+        }),
     ])
 } else {
     config.devtool = 'source-map';
