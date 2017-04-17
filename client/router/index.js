@@ -7,6 +7,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+const test = resolve => require.ensure([], () => resolve(require('../test.vue')), 'test')
 const page404 = resolve => require.ensure([], () => resolve(require('../404.vue')), 'page404')
 
 const Index = resolve => require.ensure([], () => resolve(require('../pages/index.vue')), 'index')
@@ -16,6 +17,7 @@ const dynamic = resolve => require.ensure([], () => resolve(require('../pages/dy
 const paper = resolve => require.ensure([], () => resolve(require('../pages/paper/paper.vue')), 'paper')
 const hotList = resolve => require.ensure([], () => resolve(require('../pages/list/list.vue')), 'list')
 const category = resolve => require.ensure([], () => resolve(require('../pages/category/category.vue')), 'category')
+
 
 
 
@@ -45,6 +47,9 @@ export default new Router({
                 }, {
                     path: '/hot',
                     component: hotList
+                }, {
+                    path: '/test',
+                    component: test
                 }, {
                     path: '*',
                     component: page404
