@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fetch</title>
+</head>
+<body>
+<button>ttt</button>
+<script>
+    fetch('./t.json').then(function (res) {
+        return res.json()
+    }).then(function (json) {
+        console.log(json)
+    }).catch(function (err) {
+        console.log(err)
+    })
+</script>
+</body>
+</html>
