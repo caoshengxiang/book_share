@@ -8,13 +8,13 @@ var formidable = require('formidable');
 var fs = require('fs');
 
 router.post('/uploader', function (req, res, next) {
-    var AVATAR_UPLOAD_FOLDER = '/upload';
+    var AVATAR_UPLOAD_FOLDER = 'upload';
     var domain = 'http://localhost:3000';
 
 
     var form = new formidable.IncomingForm();   //创建上传表单
     form.encoding = 'utf-8';        //设置编辑
-    form.uploadDir = 'server/public' + AVATAR_UPLOAD_FOLDER;     //设置上传目录
+    form.uploadDir = 'server/public/' + AVATAR_UPLOAD_FOLDER;     //设置上传目录
     form.keepExtensions = true;     //保留后缀
     form.maxFieldsSize = 2 * 1024 * 1024;   //文件大小
 
@@ -52,11 +52,12 @@ router.post('/uploader', function (req, res, next) {
         //图片写入地址；
         var newPath = form.uploadDir +'/' + avatarName;
         //显示地址；
-        var showUrl = domain + AVATAR_UPLOAD_FOLDER+ '/' + avatarName;
-        console.log("newPath", newPath);
+        // var showUrl = domain + AVATAR_UPLOAD_FOLDER+ '/' + avatarName;
+        var showUrl = '/'+AVATAR_UPLOAD_FOLDER+ '/' + avatarName;
+        console.log("newPath>>>", newPath);
         fs.renameSync(files.fulAvatar.path, newPath);  //重命名
         res.json({
-            "file": files,
+            "file": files.fulAvatar,
             "url":showUrl
         });
     });

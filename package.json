@@ -53,7 +53,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "set NODE_ENV=production&& webpack --progress -- colors",
     "dev": "set NODE_ENV=devlopment&& webpack-dev-server --progress --colors --hot --quiet",
-    "clear": "rm -rf server/public/* && rm -rf built",
+    "clear": "rm -rf server/public/!(upload) && rm -rf built",
     "sup": "supervisor ./server/bin/www",
     "supStart": "supervisor ./server/bin/www",
     "start": "node ./server/bin/www",

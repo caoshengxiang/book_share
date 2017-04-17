@@ -17,6 +17,9 @@
     1. npm run build 打包到server/public目录下
     2. npm run start 启动服务器
 
+### 注意:
+    图片上传在public目录下一定要有upload目录
+
 ### 不同环境下修改说明
     package.json修改：NODE_ENV环境变量设置linux使用export,win下使用set,如下：
     1. linux: export NODE_ENV=production

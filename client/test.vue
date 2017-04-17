@@ -13,6 +13,7 @@
             </div>
         </form>
         <img id="img" src="" alt="">
+        <div>参考: https://segmentfault.com/a/1190000005706031</div>
     </div>
 </template>
 <script>
@@ -48,7 +49,7 @@
                     contentType: false,
                     success: function (responseStr) {
                         console.log(responseStr);
-                        $("#img").attr({"src": responseStr.newPath});
+                        $("#img").attr({"src": responseStr.url});
                     },
                     error: function (responseStr) {
                         alert(responseStr.newPath);
