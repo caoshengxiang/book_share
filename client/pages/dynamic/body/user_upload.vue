@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <el-button>我有一本好书</el-button>
+        <el-button @click.native="addBook">我有一本好书</el-button>
     </div>
 </template>
 <script>
@@ -20,7 +20,11 @@
             return {}
         },
         computed: {},
-        methods: {},
+        methods: {
+            addBook() {
+                this.$router.push('/dynamic_add');
+            }
+        },
         components: {},
 
     }

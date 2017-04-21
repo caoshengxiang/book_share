@@ -6,12 +6,12 @@ User: [{
     username: '',
     password: '',
     headImg: 'img',
-    upload_b: ['bookID'],
-    comment_b: [],
+    uploadB: ['bookID'],
+    commentB: [],
     nodes: [],
-    reading_b: [],
-    want_read_b: []
-    read_b: [],
+    readingB: [],
+    wantReadB: []
+    readB: [],
 }]
 ```
 
@@ -25,7 +25,7 @@ Book: [{
     tag: [],
     classify: '',
     average_score: 5,
-    rcmd_words: '',
+    rcmdWords: '',
     comments: [
         {
             id: '',
@@ -35,7 +35,8 @@ Book: [{
             time: '',
             score: '',
         }
-    ]
+    ],
+    userId: ''
 }]
 ```
 
@@ -44,8 +45,8 @@ Book: [{
 Paper: [
 {
     poster: '',
-    min_img: '',
-    book_name: '',
+    minImg: '',
+    bookName: '',
     text: '',
 }]
 ```
@@ -58,7 +59,7 @@ Hot: [
         bookid: ''，
         img: '',
         name: '',
-        av_score: '',
+        avScore: '',
     }
 ]
 ```
