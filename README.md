@@ -6,12 +6,23 @@
     * node/npm
     * npm install -g json-server 全局安装，前端模拟数据借口
     * npm install -g supervisor 服务器热更新
-
+    * 安装mongodb
 ### 运行项目
     1. git clone git@bitbucket.org:caoshengxiang/book_share.git
     2. npm install
     3. json-server json_server/test.json
-    3. npm run dev
+    4. npm run dev
+    5. 数据库启动 cd *Server\3.2\bin;（对应安装目录）
+        命令> mongod --dbpath=/path/mongodb --fork=true logpath=/path/mongod.log
+        （推荐）以配置文件形式保存配置：
+        port=12345
+        bind_ip=10.10.10.10
+        logpath=/path/mongod.log
+        pidfilepath=/path/mongod.pid
+        logappend=true
+        fork=true
+
+
 
     生产环境
     1. npm run build 打包到server/public目录下

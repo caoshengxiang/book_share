@@ -32,7 +32,7 @@
             uploadImg() {
                 //用form 表单直接 构造formData 对象; 就不需要下面的append 方法来为表单进行赋值了。
                 var formData = new FormData($("#myForm")[0]);
-                var url = "http://localhost:3000/upload/uploader";
+                var url = "/upload/uploader";
                 $.ajax({
                     url: url,
                     type: 'POST',
