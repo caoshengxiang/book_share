@@ -123,7 +123,8 @@ router.post('/add', function (req, res, next) {
 // comment
 router.post('/comment', function (req, res, next) {
     var p = req.body;
-    Book.create({$push: p}, function (err) {
+    console.log(p)
+    Book.update({_id: p.bookId}, {$push: {comments: p}}, function (err) {
         if(err) {
             console.log('err>>>>', err)
             res.json({

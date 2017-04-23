@@ -5,12 +5,13 @@ var mongoose = require('../db');
 var Schema = mongoose.Schema;
 
 var commentsSchema = Schema({
-    id: String,
+    // id: String,
     userId: String,
     username: String,
     content: String,
     time: String,
-    score: Number
+    score: Number,
+    bookId: String
 })
 
 

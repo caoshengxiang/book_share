@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-            <li class="comments-item" v-for="(item, index) in comments" :data-uId="item.userId">
+            <li class="comments-item" v-for="(item, index) in comments" :key="index">
                 <img src="../../../assets/user.jpg" alt="" class="u-header">
                 <div class="u-comment">
                     <p class="u-bg"><span class="u-name">{{item.username}}</span> <span class="u-time">{{item.time}}</span></p>
@@ -62,7 +62,8 @@
                     return []
                 },
                 type: Array
-            }
+            },
+            id: '',
         },
         data() {
             return {
@@ -81,6 +82,7 @@
                         content: this.textArea,
                         time: new Date(),
                         score: this.rate,
+                        bookId: this.id
                     }, function (result) {
                         console.log(result)
                     })

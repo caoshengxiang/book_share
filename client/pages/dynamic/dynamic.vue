@@ -42,6 +42,21 @@
             $.getJSON('/books/lists', function (result) {
                 if(result.s) {
                     that.bookInfo = result.d;
+                    const d = result.d;
+                    if(d.length > 0) {
+                        that.bookInfo.forEach((item) => {
+                            let comments = item.comments;
+                            let sun = 0;
+                            let avg = 0;
+                            if(comments.length > 0) {
+                                comments.forEach((c) => {
+                                    sun += c.score;
+                                })
+                                avg = (sun/comments.length).toFixed(1);
+                            }
+                            item.averageScore = avg;
+                        })
+                    }
                 } else {
                     console.log(result.d)
                 }
