@@ -4,12 +4,7 @@
         <search-bar></search-bar>
 
         <div class="dynamic-con">
-            <dynamic-list></dynamic-list>
-            <dynamic-list></dynamic-list>
-            <dynamic-list></dynamic-list>
-            <dynamic-list></dynamic-list>
-            <dynamic-list></dynamic-list>
-            <dynamic-list></dynamic-list>
+            <dynamic-list :bookInfo="bookInfo"></dynamic-list>
 
             <div class="upload-book">
                 <user-upload></user-upload>
@@ -27,8 +22,14 @@
 
     import dynamicList from './body/dynamic_list.vue'
     import userUpload from './body/user_upload.vue'
+    import $ from 'jquery'
     export default {
-        name: '',
+        name: 'Dynamic',
+        data() {
+            return {
+                bookInfo: [],
+            }
+        },
         components: {
             pageHeader,
             pageFooter,
@@ -36,6 +37,16 @@
             dynamicList,
             userUpload,
         },
+        created() {
+            var that = this;
+            $.getJSON('/books/lists', function (result) {
+                if(result.s) {
+                    that.bookInfo = result.d;
+                } else {
+                    console.log(result.d)
+                }
+            })
+        }
     }
 </script>
 

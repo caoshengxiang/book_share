@@ -156,6 +156,8 @@
 
 * json-server文档、教程：[https://github.com/typicode/json-server](https://github.com/typicode/json-server)
 
+* mongoose文档：http://www.nodeclass.com/api/mongoose.html
+
 #### 设计
 * 看看豆：https://kankandou.com/
 * 豆瓣读书：https://book.douban.com/

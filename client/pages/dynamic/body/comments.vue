@@ -1,12 +1,12 @@
 <template>
     <div>
         <ul>
-            <li class="comments-item">
+            <li class="comments-item" v-for="(item, index) in comments" :data-uId="item.userId">
                 <img src="../../../assets/user.jpg" alt="" class="u-header">
                 <div class="u-comment">
-                    <p class="u-bg"><span class="u-name">爱银</span> <span class="u-time">2017-04-12 09:25:11</span></p>
+                    <p class="u-bg"><span class="u-name">{{item.username}}</span> <span class="u-time">{{item.time}}</span></p>
                     <el-rate
-                            v-model="rate"
+                            v-model="item.score"
                             disabled
                             show-text
                             text-color="#ff9900"
@@ -18,29 +18,11 @@
                             style="margin: 10px 0;"
                     >
                     </el-rate>
-                    <p>没错的，恶是个秘密，没人真正说得清。</p>
+                    <p>{{item.content}}</p>
                 </div>
             </li>
-            <li class="comments-item">
-                <img src="../../../assets/user.jpg" alt="" class="u-header">
-                <div class="u-comment">
-                    <p class="u-bg"><span class="u-name">爱银</span> <span class="u-time">2017-04-12 09:25:11</span></p>
-                    <el-rate
-                            v-model="rate"
-                            disabled
-                            show-text
-                            text-color="#ff9900"
-                            text-template="{value}"
-                            :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
-                            :max="10"
-                            :low-threshold="3"
-                            :high-threshold="6"
-                            style="margin: 10px 0;"
-                    >
-                    </el-rate>
-                    <p>没错的，恶是个秘密，没人真正说得清。</p>
-                </div>
-            </li>
+
+            <!-- 用户评论 -->
             <li class="comments-item">
                 <img src="../../../assets/user.jpg" alt="" class="u-header">
                 <div class="u-comment">
@@ -64,25 +46,50 @@
                             placeholder="请输入内容"
                             v-model="textArea">
                     </el-input>
-                    <el-button style="margin-top: 10px;">加上去</el-button>
+                    <el-button style="margin-top: 10px;" @click="addComment">加上去</el-button>
                 </div>
             </li>
         </ul>
     </div>
 </template>
 <script>
-
+    import $ from 'jquery'
     export default {
         name: '',
-        props: {},
+        props: {
+            comments: {
+                default() {
+                    return []
+                },
+                type: Array
+            }
+        },
         data() {
             return {
-                rate: 1.7,
+                rate: 0,
                 textArea: '',
             }
         },
         computed: {},
-        methods: {},
+        methods: {
+            addComment() {
+                if(localStorage.user) {
+                    var u = JSON.parse(localStorage.user);
+                    $.post('/books/comment', {
+                        userid: u._id,
+                        username: u.username,
+                        content: this.textArea,
+                        time: new Date(),
+                        score: this.rate,
+                    }, function (result) {
+                        console.log(result)
+                    })
+                } else {
+                    this.$alert('你还没有登录！')
+                }
+
+            }
+        },
         components: {},
     }
 </script>

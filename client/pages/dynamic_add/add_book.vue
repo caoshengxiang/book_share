@@ -38,7 +38,7 @@
                     <el-switch on-text="" off-text="" v-model="form.pub"></el-switch>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="alert()">立即创建</el-button>
+                    <el-button type="primary" @click="rcmdBook()">现在推荐</el-button>
                     <el-button>取消</el-button>
                 </el-form-item>
             </el-form>
@@ -47,6 +47,7 @@
 </template>
 <script>
     import pageHeader from '../../components/comm/header.vue'
+    import $ from 'jquery'
     export default {
         name: '',
         props: {},
@@ -54,7 +55,7 @@
             return {
                 imageUrl: '',
                 form: {
-                    id: '',
+//                    id: '',
                     img: '',
                     name: '',
                     author: '',
@@ -127,6 +128,29 @@
                     this.$message.error('上传头像图片大小不能超过 2MB!');
                 }
                 return (isJPG || isPng) && isLt2M;
+            },
+            rcmdBook() {
+                console.log(this.form.tag)
+                // TODO 表单验证
+                // TODO userId
+                $.ajax({
+                    url: '/books/add',
+                    type: 'post',
+                    data: {
+                        img: this.form.img,
+                        name: this.form.name,
+                        author: this.form.author,
+                        tag: this.form.tag,
+                        classify: this.form.classify,
+                        rcmdWords: this.form.rcmdWords,
+                        userId: 1
+                    },
+                    success: function (result) {
+                        console.log(result)
+                    },
+                    dataType: 'json',
+                    traditional: true
+                });
             }
         }
     }

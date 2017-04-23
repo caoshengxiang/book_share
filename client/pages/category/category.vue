@@ -7,12 +7,12 @@
             <div class="menu">
                 <h5>图书商品分类</h5>
                 <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-                    <el-menu-item index="1">文学</el-menu-item>
-                    <el-menu-item index="2">流行</el-menu-item>
-                    <el-menu-item index="3">文化</el-menu-item>
-                    <el-menu-item index="4">生活</el-menu-item>
-                    <el-menu-item index="5">经管</el-menu-item>
-                    <el-menu-item index="6">科技</el-menu-item>
+                    <el-menu-item
+                            v-for="(item, index) in categoryL"
+                            @click="category(item)"
+                            :index="index + '-1'"
+                            :key="index"
+                    >{{item}}</el-menu-item>
                 </el-menu>
             </div>
             <div class="category-lists">
@@ -33,32 +33,36 @@
     import bookList from './body/book_list.vue'
 
     import img1 from '../../assets/list/s2801.jpg'
+
+    import $ from 'jquery'
     export default {
         name: '',
         props: {},
         data() {
             return {
-                books: [
-                    {id: 1, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                    {id: 2, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                    {id: 3, img: img1, name: 'CSS控制文字，超出部分显示省略号', author: '李磊', cat: '小说'},
-                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                    {id: 3, img: img1, name: '情人', author: '李磊', cat: '小说'},
-                ],
+                categoryL: ['文学', '流行', '文化', '生活', '经管', '科技', '其他'],
+                books: [],
             }
         },
         computed: {},
         methods: {
             handleOpen(key, keyPath) {
                 console.log(key, keyPath);
+                alert()
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
+            },
+            category(va) {
+                this.getCategory(va)
+            },
+            getCategory(classify) {
+                $.getJSON('/books/list/:'+classify,
+                    function (result) {
+                        if(result.s) {
+                            this.books = result.d;
+                        }
+                })
             }
         },
         components: {
@@ -67,7 +71,9 @@
             searchBar,
             bookList,
         },
-
+        created() {
+            this.getCategory('文学')
+        }
     }
 </script>
 <style lang="sass" rel="stylesheet/scss" scoped>
