@@ -18,6 +18,7 @@ const dynamicAdd = resolve => require.ensure([], () => resolve(require('../pages
 const paper = resolve => require.ensure([], () => resolve(require('../pages/paper/paper.vue')), 'paper')
 const hotList = resolve => require.ensure([], () => resolve(require('../pages/list/list.vue')), 'list')
 const category = resolve => require.ensure([], () => resolve(require('../pages/category/category.vue')), 'category')
+const bookDetail = resolve => require.ensure([], () => resolve(require('../pages/book_detail/book_detail.vue')), 'category')
 
 
 
@@ -30,25 +31,37 @@ export default new Router({
             component: Index,
             children: [
                 {
+                    name: 'home',
                     path: '',
                     component: Home,
                 },
                 {
+                    name: 'detail',
+                    path: '/book/:detail',
+                    component: bookDetail,
+                },
+                {
+                    name: 'read',
                     path: '/read',
                     component: read,
                 }, {
+                    name: 'dynamic',
                     path: '/dynamic',
                     component: dynamic
                 }, {
+                    name: 'dynamicAdd',
                     path: '/dynamic_add',
                     component: dynamicAdd
                 }, {
+                    name: 'category',
                     path: '/category',
                     component: category
                 }, {
+                    name: 'paper',
                     path: '/paper',
                     component: paper
                 }, {
+                    name: 'hot',
                     path: '/hot',
                     component: hotList
                 }, {
