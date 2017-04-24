@@ -24,7 +24,7 @@ Book: [{
     author: '',
     tag: [],
     classify: '',
-    average_score: 5,
+    // average_score: 5,
     rcmdWords: '',
     comments: [
         {
@@ -56,7 +56,8 @@ Paper: [
 Hot: [
     {
         top: 1,
-        bookid: ''，
+        bookid: '',
+        bookid: '',
         img: '',
         name: '',
         avScore: '',

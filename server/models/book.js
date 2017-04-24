@@ -24,7 +24,7 @@ var bookSchema = Schema({
     // average_score: Number,
     rcmdWords: String,
     comments: [commentsSchema],
-    userId: '',
+    userId: String,
     pub: Boolean
 })
 

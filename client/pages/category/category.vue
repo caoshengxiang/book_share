@@ -48,16 +48,16 @@
         methods: {
             handleOpen(key, keyPath) {
                 console.log(key, keyPath);
-                alert()
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
             },
             category(va) {
+                console.log(va)
                 this.getCategory(va)
             },
             getCategory(classify) {
-                $.getJSON('/books/list/:'+classify,
+                $.getJSON('/books/list/'+classify,
                     function (result) {
                         if(result.s) {
                             this.books = result.d;

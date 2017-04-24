@@ -5,7 +5,7 @@
         </div>
         <div>
             <el-row :gutter="20">
-                <el-col :span="6" :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in remBookList" :key="item.id">
+                <el-col :span="6" :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in remBookList" :key="item.id" @click.native="detailBook(item)">
                     <book-card :bookItem="item"></book-card>
                 </el-col>
             </el-row>
@@ -14,6 +14,7 @@
 </template>
 <script>
     import bookCard from '../../../components/card/book_card.vue'
+    import $ from 'jquery'
     export default {
         name: '',
         props: {},
@@ -25,28 +26,28 @@
                         name: '美丽小宇宙',
                         author: '毕淑敏',
                         tag: '推荐',
-                        id: '1'
+                        _id: '1'
                     },
                     {
                         img: 'https://img3.doubanio.com/lpic/s29331250.jpg',
                         name: '你属于黑夜，我属于你',
                         author: '小岛',
                         tag: '推荐',
-                        id: '2'
+                        _id: '2'
                     },
                     {
                         img: 'https://img1.doubanio.com/lpic/s29417057.jpg',
                         name: '不管怎么样，这就是二十岁的我们',
                         author: 'WhatYouNeed,our old day',
                         tag: '推荐',
-                        id: '3'
+                        _id: '3'
                     },
                     {
                         img: 'https://img1.doubanio.com/lpic/s29287637.jpg',
                         name: '深暗',
                         author: '[美] 赫克托·托巴尔',
                         tag: '推荐',
-                        id: '4'
+                        _id: '4'
                     }, {
                         img: 'https://img1.doubanio.com/lpic/s29205408.jpg',
                         name: '如何听懂音乐',
@@ -64,13 +65,26 @@
             }
         },
         computed: {},
-        methods: {},
+        methods: {
+            detailBook(item) {
+                console.log(item)
+                $.getJSON('/books/book/'+ item._id, function (result) {
+                    console.log(result); // TODO 在详情页面
+                })
+            }
+        },
         components: {
             bookCard,
         },
         beforeCreate(){
         },
         created() {
+            var that = this;
+            $.getJSON('/books/lists', function (result) {
+                if(result.s) {
+                    that.remBookList = result.d;
+                }
+            })
         },
         beforeMount() {
         },

@@ -2,7 +2,7 @@
     <div class="search">
         <div class="search-bar container">
             <div class="title" @click="jumpToHome">Books Share</div>
-            <form action="" method="get" class="form">
+            <form action="/books/search" method="get" class="form">
                 <!--<input  type="text"/>-->
                 <!--<input type="submit" value="搜索">-->
                 <el-input
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import $ from 'jquery'
     export default {
         data() {
           return {
@@ -25,7 +26,18 @@
         },
         methods: {
             search() {
-                alert(this.searchInput);
+//                alert(this.searchInput);
+                if(this.searchInput) {
+                    $.getJSON('/books/search', {name: this.searchInput}, function (result) {
+                            console.log(result)
+                    })
+                } else {
+                    this.$message({
+                        message: '输入书名搜索',
+                        type: 'warning'
+                    });
+                }
+
             },
             jumpToHome() {
                 this.$router.push('/');

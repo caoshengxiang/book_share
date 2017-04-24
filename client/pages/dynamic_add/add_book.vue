@@ -49,7 +49,7 @@
     import pageHeader from '../../components/comm/header.vue'
     import $ from 'jquery'
     export default {
-        name: '',
+//        name: '',
         props: {},
         data() {
             return {
