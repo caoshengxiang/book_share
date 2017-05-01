@@ -27,8 +27,9 @@
     import readConHeader from './body/read_con_header.vue'
     import bookCard from '../../components/card/book_card.vue'
 
+    import utils from '../../utils/utils'
     export default {
-        name: 'One',
+        name: 'Read',
         data() {
             return {
                 bookLists: [
@@ -57,7 +58,8 @@
                         tag: '推荐',
                         id: '6'
                     }
-                ]
+                ],
+                user: ''
             }
         },
         computed: {
@@ -149,6 +151,16 @@
              alert('error')
              }
              });*/
+        },
+        created() {
+            this.user = utils.getLocalStorage('user');
+            if (!this.user.username) {
+                this.$router.go(-1)
+                this.$message({
+                    type: 'warning',
+                    message: '你还没有登录哦！！！'
+                })
+            }
         }
     }
 </script>

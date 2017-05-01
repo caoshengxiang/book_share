@@ -26,9 +26,17 @@
         methods: {
             search() {
 //                alert(this.searchInput);
+                var that = this;
                 if(this.searchInput) {
                     $.getJSON('/books/search', {name: this.searchInput}, function (result) {
-                            console.log(result)
+                        if(result.s == 1){
+                            that.$router.push({name: 'searchRes', params: {book: result.d}})
+                        } else if (result.s == 2) {
+                            that.$message({
+                                message: '未查到该书名',
+                                type: 'warning'
+                            });
+                        }
                     })
                 } else {
                     this.$message({

@@ -4,7 +4,7 @@
             <li class="comments-item" v-for="(item, index) in comments" :key="index">
                 <img src="../../../assets/user.jpg" alt="" class="u-header">
                 <div class="u-comment">
-                    <p class="u-bg"><span class="u-name">{{item.username}}</span> <span class="u-time">{{item.time}}</span></p>
+                    <p class="u-bg"><span class="u-name">{{ item.username }}</span> <span class="u-time">{{getTime(item.time)}}</span></p>
                     <el-rate
                             v-model="item.score"
                             disabled
@@ -26,7 +26,7 @@
             <li class="comments-item">
                 <img src="../../../assets/user.jpg" alt="" class="u-header">
                 <div class="u-comment">
-                    <p class="u-bg"><span class="u-name">allen</span></p>
+                    <p class="u-bg"><span class="u-name">{{user.username?user.username:'请登录'}}</span></p>
                     <el-rate
                             v-model="rate"
                             show-text
@@ -54,8 +54,9 @@
 </template>
 <script>
     import $ from 'jquery'
+    import utils from '../../../utils/utils'
     export default {
-        name: '',
+        name: 'Comments',
         props: {
             comments: {
                 default() {
@@ -69,11 +70,13 @@
             return {
                 rate: 0,
                 textArea: '',
+                user: utils.getLocalStorage('user'),
             }
         },
         computed: {},
         methods: {
             addComment() {
+                const that = this;
                 if(localStorage.user) {
                     var u = JSON.parse(localStorage.user);
                     $.post('/books/comment', {
@@ -85,11 +88,24 @@
                         bookId: this.id
                     }, function (result) {
                         console.log(result)
+                        if(result.s == 1) {
+                            that.$message('评分成功')
+                        }
                     })
                 } else {
                     this.$alert('你还没有登录！')
                 }
 
+            },
+            getTime(t) {
+                const dt = new Date(t),
+                    y = dt.getFullYear(),
+                    m = dt.getMonth() +1,
+                    d = dt.getDay(),
+                    h = dt.getHours(),
+                    mi = dt.getMinutes(),
+                    se = dt.getSeconds();
+                return y+'.' +m+ '.'+d+ ' ' +h+ ':' +mi+ ':'+se
             }
         },
         components: {},
@@ -105,7 +121,7 @@
         .u-comment{
             float: left;
             margin-left: 10px;
-            width: 582px;
+            width: 560px;
 
             .u-bg{
                 background-color: rgba(246,246,241,0.8);

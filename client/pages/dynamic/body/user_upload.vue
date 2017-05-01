@@ -12,17 +12,27 @@
     </div>
 </template>
 <script>
-
+    import utils from '../../../utils/utils'
     export default {
-        name: '',
+        name: 'userUpload',
         props: {},
         data() {
-            return {}
+            return {
+                user: '',
+            }
         },
         computed: {},
         methods: {
             addBook() {
-                this.$router.push('/dynamic_add');
+                this.user = utils.getLocalStorage('user');
+                if (!this.user.username) {
+                    this.$message({
+                        type: 'warning',
+                        message: '你还没有登录哦！！！'
+                    })
+                } else {
+                    this.$router.push('/dynamic_add');
+                }
             }
         },
         components: {},

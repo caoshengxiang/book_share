@@ -24,6 +24,7 @@ router.get('/list/:classify', function (req, res, next) {
         userId: 1,
         pub: 1
     }, {}, function (err, result) {
+        // console.log(result)
         if(err) {
             console.log('err >>>', err);
             res.json({

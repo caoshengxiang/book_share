@@ -1,6 +1,9 @@
 <template>
     <div class="list">
-        <div class="hot-header"><a href="/"><img src="../../assets/logo.jpg" alt=""></a>  &nbsp;&nbsp;热榜&nbsp;&nbsp; | &nbsp;&nbsp;分享给朋友 共2000人访问</div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+        <div class="hot-header"><a href="/"><img src="../../assets/logo.jpg" alt=""></a>  &nbsp;&nbsp;热榜&nbsp | 共2000人访问 | &nbsp;分享给朋友
+            <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
+        </div>
         <div class="video-box">
             <video loop autoplay class="video">
                 <source :src="videoSrc" type="video/mp4">
@@ -107,6 +110,26 @@
         components: {
             hotList,
         },
+        created() {
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},
+                "share":{},
+                "image":{
+                    "viewList":["qzone","tsina","tqq","weixin","sqq"],
+                    "viewText":"分享到：",
+                    "viewSize":"24"
+                },
+                "selectShare":{
+                    "bdContainerClass":null,
+                    "bdSelectMiniList":["qzone","tsina","tqq","weixin","sqq"]
+                }
+            };
+//            with(document)0[
+                (document.getElementsByTagName('head')[0]||body)
+                    .appendChild(document.createElement('script'))
+                    .src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(- new Date()/36e5)
+//                ];
+        }
     }
 </script>
 <style lang="sass" rel="stylesheet/scss" scoped>

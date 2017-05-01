@@ -54,7 +54,7 @@
                                 })
                                 avg = (sun/comments.length).toFixed(1);
                             }
-                            item.averageScore = avg;
+                            item.averageScore = parseFloat(avg);
                         })
                     }
                 } else {

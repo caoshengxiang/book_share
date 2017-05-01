@@ -19,6 +19,7 @@ const paper = resolve => require.ensure([], () => resolve(require('../pages/pape
 const hotList = resolve => require.ensure([], () => resolve(require('../pages/list/list.vue')), 'list')
 const category = resolve => require.ensure([], () => resolve(require('../pages/category/category.vue')), 'category')
 const bookDetail = resolve => require.ensure([], () => resolve(require('../pages/book_detail/book_detail.vue')), 'category')
+const searchResult = resolve => require.ensure([], () => resolve(require('../pages/search_list/search_list.vue')), 'category')
 
 
 
@@ -67,6 +68,10 @@ export default new Router({
                 }, {
                     path: '/test',
                     component: test
+                }, {
+                    name: 'searchRes',
+                    path: '/search_res',
+                    component: searchResult,
                 }, {
                     path: '*',
                     component: page404

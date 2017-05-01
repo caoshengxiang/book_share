@@ -131,6 +131,7 @@
             },
             rcmdBook() {
                 console.log(this.form.tag)
+                const that = this;
                 // TODO 表单验证
                 // TODO userId
                 $.ajax({
@@ -147,10 +148,29 @@
                     },
                     success: function (result) {
                         console.log(result)
+                        if (result.s == 1) {
+                            that.$message('上传成功')
+                            setTimeout(()=>{
+                                that.resetForm();
+                            }, 300)
+                        }
                     },
                     dataType: 'json',
                     traditional: true
                 });
+            },
+            resetForm() {
+                this.form = {
+//                    id: '',
+                    img: '',
+                    name: '',
+                    author: '',
+                    tag: [],
+                    classify: '',
+                    rcmdWords: '',
+                    userId: '',
+                    pub: true,
+                }
             }
         }
     }

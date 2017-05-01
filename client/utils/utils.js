@@ -19,5 +19,14 @@ export default {
     },
     destoryLocalStorage(st) {
         localStorage[st] = '';
+    },
+    getTime(t) {
+        const y = t.getFullYear(),
+            m = t.getMonth() +1,
+            d = t.getDay(),
+            h = t.getTime(),
+            mi = t.getMinutes(),
+            se = t.getSeconds();
+        return y+' ' +m+ ' '+d+ '' +h+ ':' +mi+ ':'+se
     }
  }

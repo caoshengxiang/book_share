@@ -53,14 +53,15 @@
                 console.log(key, keyPath);
             },
             category(va) {
-                console.log(va)
+//                console.log(va)
                 this.getCategory(va)
             },
             getCategory(classify) {
+                var that = this;
                 $.getJSON('/books/list/'+classify,
                     function (result) {
                         if(result.s) {
-                            this.books = result.d;
+                            that.books = result.d;
                         }
                 })
             }
